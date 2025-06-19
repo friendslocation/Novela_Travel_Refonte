@@ -1,0 +1,157 @@
+/* Polices modernes */
+body {
+    font-family: 'Open Sans', sans-serif; /* Corps de texte */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    padding-top: 56px; /* Pour éviter que le contenu ne soit caché par la navbar fixe */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Titres */
+    color: #212529; /* Couleur plus foncée pour les titres */
+    margin-bottom: 1rem;
+}
+
+/* Styles pour la section Hero */
+.hero-section {
+    background: url('../img/hero-voyage.jpg') no-repeat center center / cover;
+    min-height: 600px; /* Légèrement plus grande */
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 120px 0; /* Plus de padding */
+    display: flex; /* Centrage vertical du contenu */
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Ombre légère pour le texte */
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65); /* Overlay plus sombre */
+    z-index: -1;
+}
+
+/* Navbar Customization */
+.navbar {
+    background-color: rgba(33, 37, 41, 0.9); /* Un peu transparent pour le modernisme */
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.navbar-brand {
+    font-weight: 700; /* Gras pour le nom de l'agence */
+    font-size: 1.5rem;
+}
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8); /* Liens un peu transparents */
+    padding: 0.7rem 1.2rem;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #fff !important; /* Blanc pur au survol/actif */
+    font-weight: 600;
+}
+.btn-outline-light {
+    border-width: 2px; /* Bordure plus épaisse pour le bouton d'appel */
+    font-weight: 600;
+}
+
+/* Couleurs des boutons (inspirées du violet de Novela Travel) */
+.btn-primary {
+    background-color: #7B3E9F; /* Un violet plus riche */
+    border-color: #7B3E9F;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #5D2E7C; /* Violet plus foncé */
+    border-color: #5D2E7C;
+    transform: translateY(-2px); /* Petit effet au survol */
+}
+.btn-outline-primary {
+    color: #7B3E9F;
+    border-color: #7B3E9F;
+    transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+    background-color: #7B3E9F;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-success { /* Pour le bouton d'appel */
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.btn-info { /* For the email button */
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+/* Sections générales */
+section {
+    padding: 80px 0; /* Plus d'espacement */
+    text-align: center; /* Centrage général */
+}
+
+/* Images de l'agence (pour la version que vous préférez) */
+#a-propos img {
+    border-radius: 10px; /* Bords arrondis pour les images */
+    transition: transform 0.3s ease;
+}
+#a-propos img:hover {
+    transform: scale(1.03); /* Léger zoom au survol */
+}
+
+/* Cartes de Services (plus tendance) */
+.card {
+    border: none;
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Ombre plus prononcée mais douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Important pour les images */
+}
+.card:hover {
+    transform: translateY(-8px); /* Plus grand effet d'élévation */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Ombre plus forte au survol */
+}
+.card-img-top {
+    height: 200px; /* Hauteur fixe un peu plus grande */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.card:hover .card-img-top {
+    transform: scale(1.05); /* Léger zoom sur l'image de la carte au survol */
+}
+.card-body {
+    padding: 2rem;
+}
+.card-title {
+    color: #7B3E9F; /* Titres de cartes en violet */
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    background-color: #212529;
+    color: white;
+    padding: 25px 0;
+    font-size: 0.85em;
+}
+
+/* Animations de défilement (Scroll Animations) - Nécessitent JavaScript */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
