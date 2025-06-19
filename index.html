@@ -18,7 +18,8 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="img/logo-novela.png" alt="Logo Novela Travel" style="max-height: 40px; margin-right: 10px;">
                     Novela Travel
@@ -73,7 +74,9 @@
             <p class="mt-4 mb-5 mx-auto" style="max-width: 800px;">
                 Chez Novela Travel, nous croyons que chaque voyage est une histoire. Nos bureaux sont conçus pour vous offrir un espace confortable et inspirant où nos conseillers dédiés vous guident à travers un monde de possibilités, du choix de votre destination à la finalisation de chaque détail. Nous mettons l'accent sur une écoute attentive pour transformer vos rêves en réalités mémorables.
             </p>
-            <div class="row mt-5"> <div class="col-12 mb-4">
+
+            <div class="row mt-5">
+                <div class="col-12 mb-4">
                     <img src="img/agence-exterieur.png" alt="Extérieur Agence Novela Travel" class="img-fluid rounded shadow-sm">
                     <p class="text-muted mt-2">Notre agence, située à Coop EL Amel BT B1 ain naadja Alger.</p>
                 </div>
@@ -151,22 +154,27 @@
             <p>N'hésitez pas à nous contacter pour toute demande ou information. Notre équipe est à votre écoute.</p>
             <div class="row justify-content-center mt-4">
                 <div class="col-md-8">
-                    <form>
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div hidden>
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </div>
+
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Votre Nom Complet">
+                            <input type="text" class="form-control" placeholder="Votre Nom Complet" name="nom-complet" required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Votre Adresse E-mail">
+                            <input type="email" class="form-control" placeholder="Votre Adresse E-mail" name="email" required>
                         </div>
                         <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Votre Numéro de Téléphone">
+                            <input type="tel" class="form-control" placeholder="Votre Numéro de Téléphone" name="telephone">
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Votre Message"></textarea>
+                            <textarea class="form-control" rows="5" placeholder="Votre Message" name="message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg">Envoyer le Message</button>
                     </form>
-                </div>
+                    </div>
             </div>
             <div class="mt-4">
                 <p>Ou appelez-nous directement :</p>
@@ -175,3 +183,35 @@
             </div>
         </section>
     </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p>&copy; 2025 Novela Travel. Tous droits réservés. Maquette réalisée par [Votre Nom]</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    } else {
+                        // Optionnel: pour refaire l'animation si l'élément quitte et revient
+                        // entry.target.classList.remove('show');
+                    }
+                });
+            }, {
+                threshold: 0.1 // L'animation se déclenche quand 10% de l'élément est visible
+            });
+
+            // Appliquer l'animation aux sections avec la classe 'fade-in'
+            document.querySelectorAll('.fade-in').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
