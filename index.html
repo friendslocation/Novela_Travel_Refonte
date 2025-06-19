@@ -232,3 +232,91 @@
                         <div class="mb-3">
                             <textarea class="form-control" rows="5" placeholder="Votre Message" name="message" required></textarea>
                         </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Envoyer le Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-4">
+                <p>Ou appelez-nous directement :</p>
+                <a href="tel:0554656777" class="btn btn-success btn-lg me-2"><i class="fas fa-phone-alt"></i> 0554 65 67 77</a>
+                <a href="mailto:Novelatravel@gmail.com" class="btn btn-info btn-lg"><i class="fas fa-envelope"></i> Novelatravel@gmail.com</a>
+            </div>
+            
+            <div class="mt-5">
+                <h4>Où nous trouver :</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.813959637841!2d3.036066775988517!3d36.70295417234208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128f906f6e520001%3A0xcb1b516b23a9d701!2sCoop%20EL%20Amel%20BT%20B1%20ain%20naadja%20Alger!5e0!3m2!1sfr!2sdz!4v1718816995642!5m2!1sfr!2sdz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded shadow-sm mb-4"></iframe>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p>© 2025 Novela Travel. Tous droits réservés. Maquette réalisée par [Votre Nom]</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    } else {
+                        // Optionnel: pour refaire l'animation si l'élément quitte et revient
+                        // entry.target.classList.remove('show');
+                    }
+                });
+            }, {
+                threshold: 0.1 // L'animation se déclenche quand 10% de l'élément est visible
+            });
+
+            // Appliquer l'animation aux sections avec la classe 'fade-in'
+            document.querySelectorAll('.fade-in').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Nouvelle validation de formulaire
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    let isValid = true;
+                    const requiredFields = this.querySelectorAll('[required]');
+
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('is-invalid'); // Ajoute une classe d'erreur de Bootstrap
+                        } else {
+                            field.classList.remove('is-invalid'); // Supprime la classe si le champ est rempli
+                        }
+
+                        // Validation spécifique pour l'email
+                        if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+                            isValid = false;
+                            field.classList.add('is-invalid');
+                        }
+                    });
+
+                    if (!isValid) {
+                        event.preventDefault(); // Empêche l'envoi du formulaire si la validation échoue
+                        alert('Veuillez remplir tous les champs obligatoires et corriger les erreurs.'); // Message d'alerte simple
+                    }
+                });
+
+                // Supprimer la classe is-invalid quand l'utilisateur commence à taper
+                contactForm.querySelectorAll('input, textarea').forEach(field => {
+                    field.addEventListener('input', function() {
+                        if (this.classList.contains('is-invalid')) {
+                            this.classList.remove('is-invalid');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
